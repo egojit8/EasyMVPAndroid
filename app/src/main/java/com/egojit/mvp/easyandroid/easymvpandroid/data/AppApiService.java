@@ -1,6 +1,9 @@
 package com.egojit.mvp.easyandroid.easymvpandroid.data;
 
+import com.egojit.mvp.easyandroid.easymvpandroid.model.RankingList;
 import com.egojit.mvp.easyandroid.easymvpandroid.model.Recommend;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -18,7 +21,15 @@ import rx.Observable;
 
 public interface AppApiService {
     @GET("/book/recommend")
-    Observable<Recommend> getRecomend(@Query("gender") String gender);
+    Observable<JsonObject> getRecomend(@Query("gender") String gender);
+
+    /**
+     * 获取所有排行榜
+     *
+     * @return
+     */
+    @GET("/ranking/gender")
+    Observable<JsonObject> getRanking();
 
 
 }
